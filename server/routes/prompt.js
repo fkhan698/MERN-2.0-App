@@ -1,37 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-const Prompt = require("../models/prompt");
+const promptController = require("../controllers/prompts.js");
 
-router.get("/", async (req, res) => {
-  try {
-    const prompts = await Prompt.find()
-      .sort({ createdDate: "desc" })
-      .limit(10)
-      .exec();
-    res.json(prompts);
-  } catch (e) {
-    console.log(e);
-    res.redirect("/");
-  }
-});
+router.get("/", promptController.getPrompts);
 
-router.get("/new", (req, res) => {
-  res.render("prompts/new", { prompt: new Prompt() });
-});
+router.get("/new", promptController.getAddPrompt);
 
-router.post("/create", async (req, res) => {
-  let prompt = new Prompt({
-    title: req.body.title,
-    description: req.body.description
-  });
-  try {
-    prompt = await prompt.save();
-    res.redirect("prompts");
-  } catch (e) {
-    console.log(e);
-    res.redirect("prompts/new");
-  }
-});
+router.post("/create", promptController.createPrompts);
 
 module.exports = router;

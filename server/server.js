@@ -31,15 +31,10 @@ app.set("layout", "layouts/layout");
 app.use(expressLayouts);
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
 app.use("/static", express.static(path.join(`${__dirname}/public`)));
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true
-  })
-);
+app.use(cors());
 
 //Routes
 app.use("/", indexRouter);
 app.use("/prompts", promptRouter);
 
-app.listen(3000);
+app.listen(5000);

@@ -6,11 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devStart": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "servers": "concurrently \"npm run devStart\" \"cd ./client && npm run start\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "concurrently": "^6.1.0",
     "cors": "^2.8.5",
