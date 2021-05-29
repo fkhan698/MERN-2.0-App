@@ -1,31 +1,19 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import PromptForm from "./components/PromptForm";
+import { useDispatch } from "react-redux";
+import { getPrompts } from "./actions/prompts";
+import Form from "./components/Form/Form";
 function App() {
-  const [prompt, setPrompt] = useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    const getAPIData = async () => {
-      const response = await fetch("http://localhost:5000/");
-      const data = await response.json();
-      try {
-        console.log(data);
-        setPrompt(data);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    getAPIData();
-  }, []);
-
+    dispatch(getPrompts());
+  }, [dispatch]);
   return (
     <>
+      <h1>Home Page</h1>
       <div>
-        {prompt.map(data => (
-          <li>{data.title}</li>
-        ))}
+        <Form />
       </div>
-      <PromptForm />
     </>
   );
 }

@@ -13,6 +13,8 @@ const cors = require("cors");
 const indexRouter = require("./routes/index");
 const promptRouter = require("./routes/prompt");
 
+app.use(cors());
+
 //Database
 const mongoose = require("mongoose");
 mongoose.connect(process.env.DATABASE_URL, {
@@ -31,7 +33,6 @@ app.set("layout", "layouts/layout");
 app.use(expressLayouts);
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
 app.use("/static", express.static(path.join(`${__dirname}/public`)));
-app.use(cors());
 
 //Routes
 app.use("/", indexRouter);
