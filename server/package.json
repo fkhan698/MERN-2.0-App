@@ -5,24 +5,17 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon server.js",
     "start": "node server.js",
-    "servers": "concurrently \"npm run devStart\" \"cd ./client && npm run start\""
+    "devStart": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
-    "body-parser": "^1.19.0",
-    "concurrently": "^6.1.0",
     "cors": "^2.8.5",
-    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-ejs-layouts": "^2.5.0",
-    "mongoose": "^5.12.9"
+    "mongoose": "^5.12.12"
   },
   "devDependencies": {
-    "dotenv": "^9.0.2",
     "nodemon": "^2.0.7"
   }
 }

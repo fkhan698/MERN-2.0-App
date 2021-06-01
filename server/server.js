@@ -1,17 +1,13 @@
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: ".env" });
 }
-
 const express = require("express");
-const app = express();
-const expressLayouts = require("express-ejs-layouts");
-const bodyParser = require("body-parser");
-const path = require("path");
 const cors = require("cors");
+const app = express();
 
 //Routes
-const indexRouter = require("./routes/index");
-const promptRouter = require("./routes/prompt");
+
+const postRouter = require("./routes/posts");
 
 app.use(cors());
 
@@ -29,13 +25,10 @@ db.once("open", () => console.log("Connected to Mongoose"));
 //View Engine
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
-app.set("layout", "layouts/layout");
-app.use(expressLayouts);
-app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
-app.use("/static", express.static(path.join(`${__dirname}/public`)));
+app.use(express.json());
 
 //Routes
-app.use("/", indexRouter);
-app.use("/prompts", promptRouter);
+
+app.use("/posts", postRouter);
 
 app.listen(5000);
