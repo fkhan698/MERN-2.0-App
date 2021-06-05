@@ -3,18 +3,18 @@ import { FETCH_ALL, CREATE } from "../constants/actionTypes";
 
 //Action Creators
 
-export const getPrompts = () => async dispatch => {
+export const getPosts = () => async dispatch => {
   try {
-    const { data } = await api.fetchPrompts();
+    const { data } = await api.fetchPosts();
     dispatch({ type: FETCH_ALL, payload: data });
   } catch (error) {
     console.log(error.message);
   }
 };
 
-export const createPrompt = () => async dispatch => {
+export const createPost = () => async dispatch => {
   try {
-    const { data } = await api.createPrompt();
+    const { data } = await api.createPost();
     dispatch({ type: CREATE, payload: data });
   } catch (error) {
     console.log(error);

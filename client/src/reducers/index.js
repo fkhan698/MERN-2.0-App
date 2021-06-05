@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
 
-import prompts from "./prompts";
-export default combineReducers({ prompts });
+import posts from "./posts";
+export default combineReducers({ posts });

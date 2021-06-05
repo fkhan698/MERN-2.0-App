@@ -6,13 +6,13 @@ import {
   LIKE
 } from "../constants/actionTypes";
 
-export default (prompts = [], action) => {
+export default (posts = [], action) => {
   switch (action.type) {
     case FETCH_ALL:
       return action.payload;
     case CREATE:
-      return [...prompts, action.payload];
+      return [...posts, action.payload];
     default:
-      return prompts;
+      return posts;
   }
 };

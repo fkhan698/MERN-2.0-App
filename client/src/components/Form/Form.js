@@ -2,17 +2,17 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { createPrompt } from "../../actions/prompts";
+import { createPost } from "../../actions/posts";
 export default function Form() {
   const [postData, setPostData] = useState({ title: "", description: "" });
   const dispatch = useDispatch();
   const handleSubmit = async e => {
     e.preventDefault();
-    dispatch(createPrompt(postData));
+    dispatch(createPost(postData));
   };
   return (
     <div>
-      <h1>Add New Prompt</h1>
+      <h1>Add New Post</h1>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
           <label>Title</label>
@@ -39,7 +39,7 @@ export default function Form() {
         </div>
 
         <div>
-          <button type="submit">Add Prompt</button>
+          <button type="submit">Add Post</button>
         </div>
       </form>
     </div>
