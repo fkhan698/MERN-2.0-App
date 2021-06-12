@@ -8,19 +8,20 @@ exports.getPosts = async (req, res) => {
     const posts = await Post.find(data => data);
     res.json(posts);
   } catch (e) {
-    console.log(e);
+    res.status(500).json({ message: e.message });
   }
 };
 exports.createPosts = async (req, res) => {
   let post = new Post({
     title: req.body.title,
     message: req.body.message,
-    creator: req.body.creator
+    creator: req.body.creator,
+    tags: req.body.tags
   });
   try {
     post = await post.save();
     console.log("Prompt added to database");
   } catch (e) {
-    console.log(e);
+    res.status(400).json({ message: e.message });
   }
 };

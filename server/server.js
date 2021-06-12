@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const bodyParser = require("body-parser");
 
 //Routes
 
@@ -25,7 +26,8 @@ db.once("open", () => console.log("Connected to Mongoose"));
 //View Engine
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
-app.use(express.json());
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 //Routes
 

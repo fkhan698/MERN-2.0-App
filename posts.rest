@@ -1,7 +1,11 @@
- ### 
- POST http://localhost:5000/create Content-Type: application/json
+
+ POST http://localhost:5000/posts
+ Content-Type: application/json
 
 {
-    "title": "Fuck", "message": "You", "creator": "Faizan"
+    "title": "Testing on REST again", "message": "Fuck you", "creator": "Deex", "tags", "Bitch, hello, fuck"
 
 }
+
+###
+GET http://localhost:5000/posts

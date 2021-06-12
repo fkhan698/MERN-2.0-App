@@ -3,8 +3,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { createPost } from "../../actions/posts";
-export default function Form() {
-  const [postData, setPostData] = useState({ title: "", description: "" });
+const Form = () => {
+  const [postData, setPostData] = useState({
+    title: "",
+    message: "",
+    creator: " ",
+    tags: ""
+  });
   const dispatch = useDispatch();
   const handleSubmit = async e => {
     e.preventDefault();
@@ -26,13 +31,37 @@ export default function Form() {
         </div>
 
         <div>
-          <label>Description</label>
+          <label>Message</label>
           <input
             type="text"
-            name="description"
-            value={postData.description}
+            name="message"
+            value={postData.message}
             onChange={e =>
-              setPostData({ ...postData, description: e.target.value })
+              setPostData({ ...postData, message: e.target.value })
+            }
+            required
+          />
+        </div>
+        <div>
+          <label>Creator</label>
+          <input
+            type="text"
+            name="creator"
+            value={postData.creator}
+            onChange={e =>
+              setPostData({ ...postData, creator: e.target.value })
+            }
+            required
+          />
+        </div>
+        <div>
+          <label>Tags</label>
+          <input
+            type="text"
+            name="tags"
+            value={postData.tag}
+            onChange={e =>
+              setPostData({ ...postData, tags: e.target.value.split(",") })
             }
             required
           />
@@ -44,4 +73,5 @@ export default function Form() {
       </form>
     </div>
   );
-}
+};
+export default Form;
