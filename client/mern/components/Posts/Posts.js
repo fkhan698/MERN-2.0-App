@@ -1,17 +1,27 @@
-import React from "react";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { fetchPosts } from "../../api/index";
+import { Grid } from "@material-ui/core";
 import Post from "./Post/post.js";
+import { useStyles } from "./Post/styles";
 
 export default function Posts() {
-  const posts = useSelector(state => state.posts);
+  const [posts, setPosts] = useState([]);
+  const classes = useStyles();
 
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetchPosts();
+      const data = response.data;
+      console.log(data);
+      setPosts(data);
+    };
+    getData();
+  }, []);
   return (
     <div>
-      <h1>This is posts page</h1>
-      {posts.map(post => {
-        <Post post={post} />;
-      })}
+      {posts.map(post => (
+        <Post key={post._id} post={post} />
+      ))}
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Posts from "../components/Posts/Posts.js";
+
+import Link from "next/link";
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -11,6 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>Welcome to Journaler</div>
+      <Link href="/posts">Posts page</Link>
     </div>
   );
 }

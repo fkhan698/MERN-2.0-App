@@ -3,9 +3,12 @@
  Content-Type: application/json
 
 {
-    "title": "Testing on REST again", "message": "Fuck you", "creator": "Deex", "tags", "Bitch, hello, fuck"
+    "title": "Testing on REST again"
 
 }
 
 ###
-GET http://localhost:5000/posts
+GET   http://localhost:5000/posts/60b50de7a1cabe4068555579
+
+###
+DELETE http://localhost:5000/posts/60b51189761a2b4f64eb9c00
