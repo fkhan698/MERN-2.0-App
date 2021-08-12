@@ -1,13 +1,14 @@
 import React from "react";
 import {
-  Container,
   Card,
   Typography,
   CardContent,
-  Grid,
+  Shadows,
   Button,
   ButtonGroup
 } from "@material-ui/core";
+
+import { shadows } from "@material-ui/system";
 import { makeStyles } from "@material-ui/core/styles";
 import { useStyles } from "../Post/styles";
 // const useStyles = makeStyles({
@@ -47,8 +48,27 @@ export default function Post({ post }) {
     window.location.reload(false);
   };
   return (
-    <div className={classes.grid}>
-      <Card classes={classes.card}></Card>
-    </div>
+    <Card className={classes.card} boxShadow={3}>
+      <Typography class={classes.title}>{post.title}</Typography>
+      <CardContent className={classes.cardContent}>
+        <img
+          height="100%"
+          width="100%"
+          src={post.selectedFile}
+          alt="Pictuer"
+        ></img>
+      </CardContent>
+      <ButtonGroup color="primary">
+        <Button>View</Button>
+        <Button>Update</Button>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(deletePost(post._id))}
+        >
+          Delete{" "}
+        </Button>
+      </ButtonGroup>
+    </Card>
   );
 }

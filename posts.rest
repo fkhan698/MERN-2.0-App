@@ -1,5 +1,5 @@
 
- POST http://localhost:5000/posts
+ POST http://localhost:5000/topics
  Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@
 }
 
 ###
-GET   http://localhost:5000/posts/60b50de7a1cabe4068555579
+GET   http://localhost:5000/topics/610ad323aaee0f9dadcd84b4
 
 ###
-DELETE http://localhost:5000/posts/60b51189761a2b4f64eb9c00
+DELETE http://localhost:5000/topics/610ad323aaee0f9dadcd84b4

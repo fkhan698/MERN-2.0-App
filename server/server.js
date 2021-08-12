@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 //Routes
 
 const postRouter = require("./routes/posts");
+const topicRouter = require("./routes/topics");
 
 app.use(cors());
 
@@ -32,5 +33,6 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 //Routes
 
 app.use("/posts", postRouter);
+app.use("/topics", topicRouter);
 
 app.listen(5000);

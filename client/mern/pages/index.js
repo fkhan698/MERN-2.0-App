@@ -13,6 +13,7 @@ export default function Home() {
       </Head>
       <div>Welcome to Journaler</div>
       <Link href="/posts">Posts page</Link>
+      <Link href="/topics">Topics page</Link>
     </div>
   );
 }

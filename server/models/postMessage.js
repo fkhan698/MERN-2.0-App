@@ -10,6 +10,12 @@ const postSchema = mongoose.Schema({
     type: Number,
     default: 0
   },
+  topic: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "Topic"
+  },
+
   createdAt: {
     type: Date,
     default: new Date()

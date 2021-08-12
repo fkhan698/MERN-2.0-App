@@ -26,6 +26,7 @@ exports.createPosts = async (req, res) => {
     title: req.body.title,
     message: req.body.message,
     creator: req.body.creator,
+    selectedFile: req.body.selectedFile,
     tags: req.body.tags
   });
   try {

@@ -11,10 +11,12 @@ export const useStyles = makeStyles({
     margin: "6rem"
   },
   label: {
-    fontSize: "1.5rem"
+    fontSize: "1.5rem",
+    color: "white"
   },
   inputText: {
-    fontSize: "1rem"
+    fontSize: "1rem",
+    backgroundColor: "white"
   },
   fileInput: {
     width: "97%",
