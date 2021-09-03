@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchTopics } from "../../api/topics";
 import Topic from "../Topics/Topic/topic.js";
+import { useSelector } from "react-redux";
 
 export default function Topics() {
   const [topics, setTopics] = useState([]);

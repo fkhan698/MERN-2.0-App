@@ -5,8 +5,9 @@ export const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
+    flexWrap: "reverse-wrap",
     alignItems: "center",
-    backgroundSize: "cover",
+    position: "relative",
     overflow: "hidden",
     borderRadius: "50px",
     padding: "1rem"
