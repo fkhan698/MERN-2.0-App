@@ -27,10 +27,8 @@ db.once("open", () => console.log("Connected to Mongoose"));
 //View Engine
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-
-//Routes
+app.use(express.urlencoded({ limit: "30mb" }));
+app.use(express.json({ limit: "30mb" })); //Routes
 
 app.use("/posts", postRouter);
 app.use("/topics", topicRouter);
