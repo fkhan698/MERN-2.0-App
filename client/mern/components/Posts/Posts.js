@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-import { fetchPosts } from "../../api/posts";
-import { Grid } from "@material-ui/core";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Post from "./Post/post.js";
 import { useStyles } from "./Post/styles";
 import styles from "../Posts/Posts.module.css";
+import { getPostsAsync } from "../../reducers/postSlice.js";
 
 export default function Posts() {
-  const [postsData, setPostsData] = useState([]);
   const posts = useSelector(state => state.posts);
-  const classes = useStyles();
-  console.error(posts);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getPostsAsync());
+  }, [dispatch]);
+  console.log(posts);
   return (
     <div className={styles.grid}>
       {posts.map(post => (
