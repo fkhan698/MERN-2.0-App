@@ -1,9 +1,9 @@
 
- POST http://localhost:5000/posts
+ POST http://localhost:5000/topics
  Content-Type: application/json
 
 {
-    "title": "Testing on REST again"
+    "title": "Test Topic"
 
 }
 
