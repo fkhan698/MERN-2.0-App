@@ -1,5 +1,5 @@
 
- POST http://localhost:5000/topics
+ POST http://localhost:5000/posts
  Content-Type: application/json
 
 {

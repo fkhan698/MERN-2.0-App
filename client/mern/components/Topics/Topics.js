@@ -18,7 +18,7 @@ export default function Topics() {
     <div>
       <h1>Hello</h1>
       {topics.map((topic, index) => {
-        topic.title
+        
       })}
     </div>
   )

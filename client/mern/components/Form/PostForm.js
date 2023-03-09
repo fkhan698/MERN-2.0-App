@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   TextField,
   InputLabel,
@@ -9,25 +9,29 @@ import {
   Typography,
   Button,
   Container
-} from "@material-ui/core";
-import FileBase from "react-file-base64";
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-import { useStyles } from "./styles.js";
-import { createPost } from "../../actions/posts.js";
+} from "@material-ui/core"
+import FileBase from "react-file-base64"
+import { useDispatch, useSelector } from "react-redux"
+import { useState } from "react"
+import { useStyles } from "./styles.js"
+import { createPost } from "../../actions/posts.js"
+import { useRouter } from "next/router"
+
 export default function Form() {
   const [postData, setPostData] = useState({
     title: "",
     message: "",
     selectedFile: ""
-  });
-  const classes = useStyles();
-  const dispatch = useDispatch();
+  })
+  const classes = useStyles()
+  const dispatch = useDispatch()
+  const router = useRouter()
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    dispatch(createPost(postData));
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    dispatch(createPost(postData))
+    router.push("/posts")
+  }
   return (
     <>
       <form className={classes.form} autoComplete="off" onSubmit={handleSubmit}>
@@ -40,7 +44,7 @@ export default function Form() {
             variant="outlined"
             required
             value={postData.title}
-            onChange={e =>
+            onChange={(e) =>
               setPostData({ ...setPostData, title: e.target.value })
             }
           />
@@ -55,8 +59,8 @@ export default function Form() {
             variant="outlined"
             value={postData.message}
             required
-            onChange={e => {
-              setPostData({ ...postData, message: e.target.value });
+            onChange={(e) => {
+              setPostData({ ...postData, message: e.target.value })
             }}
           />
           <div className={classes.fileInput}>
@@ -80,5 +84,5 @@ export default function Form() {
         </Container>
       </form>
     </>
-  );
+  )
 }
