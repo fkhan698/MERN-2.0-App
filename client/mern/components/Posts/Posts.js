@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import Post from "./Post/post.js"
 import { useStyles } from "./Post/styles"
-
 import styles from "../Posts/Posts.module.css"
 import { getPostsAsync } from "../../reducers/postSlice.js"
 
@@ -49,7 +48,6 @@ export default function Posts({}) {
       setIsAddingPost(false)
     }
   }, [dispatch, isAddingPost])
-  console.log(posts)
   const timeLeft = useCountdown("2023-04-14T05:00:00.000Z")
   return (
     <div className={styles.grid}>

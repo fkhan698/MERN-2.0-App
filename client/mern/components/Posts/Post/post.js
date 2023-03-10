@@ -44,14 +44,14 @@ import { useDispatch } from "react-redux"
 export default function Post({ post }) {
   const dispatch = useDispatch()
   const classes = useStyles()
-  // const [isPostDeleted, setIsPostDeleted] = useState(false)
-  // const handleDelete = async () => {
-  //   await dispatch(deletePostAsync(post._id))
-  //   setIsPostDeleted(true)
-  // }
-  // if (isPostDeleted) {
-  //   return null
-  // }
+  const [isPostDeleted, setIsPostDeleted] = useState(false)
+  const handleDelete = async () => {
+    await dispatch(deletePostAsync(post._id))
+    setIsPostDeleted(true)
+  }
+  if (isPostDeleted) {
+    return null
+  }
 
   const refreshPage = () => {
     window.location.reload(true)
